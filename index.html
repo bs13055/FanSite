@@ -12,27 +12,27 @@
     <link rel="stylesheet" href="styles.css">
   </head>
   <body>
-    <!-- Top Full-Width Sticky Navigation -->
-    <header class="site-header" id="top">
-      <div class="site-nav-header">
-        <nav class="nav-bar" aria-label="เมนูหลัก">
-          <a class="nav-logo" href="#top">
-            <span class="logo-accent">3MD</span>
-            <span class="logo-divider">/</span>
-            <span class="logo-text">THREE MAN DOWN</span>
-          </a>
-          <div class="nav-links">
-            <a href="#about" class="nav-link">เรื่องราวของวง</a>
-            <a href="#members" class="nav-link">สมาชิก</a>
-            <a href="#hits" class="nav-link">เพลงฮิต (มีเสียง)</a>
-            <a href="#albums" class="nav-link">อัลบั้ม</a>
-            <a href="#why-i-love" class="nav-link">ทำไมถึงชอบ</a>
-            <a href="#listen" class="nav-cta">ฟังเพลง 🎧</a>
-          </div>
-        </nav>
-      </div>
+    <!-- Top Full-Width Sticky Navigation (Edge-to-Edge) -->
+    <header class="site-nav-header">
+      <nav class="nav-bar" aria-label="เมนูหลัก">
+        <a class="nav-logo" href="#top">
+          <span class="logo-accent">3MD</span>
+          <span class="logo-divider">/</span>
+          <span class="logo-text">THREE MAN DOWN</span>
+        </a>
+        <div class="nav-links">
+          <a href="#about" class="nav-link">เรื่องราวของวง</a>
+          <a href="#members" class="nav-link">สมาชิก</a>
+          <a href="#hits" class="nav-link">เพลงฮิต</a>
+          <a href="#albums" class="nav-link">อัลบั้ม</a>
+          <a href="#why-i-love" class="nav-link">ทำไมถึงชอบ</a>
+          <a href="#listen" class="nav-cta">ฟังเพลง 🎧</a>
+        </div>
+      </nav>
+    </header>
 
-      <!-- Hero Banner Section -->
+    <!-- Hero Banner Section -->
+    <section class="site-header" id="top">
       <div class="hero-wrapper">
         <div class="hero-grid">
           <!-- Hero Text -->
@@ -86,7 +86,7 @@
           </div>
         </div>
       </div>
-    </header>
+    </section>
 
     <main>
       <!-- SECTION 1: ABOUT THE BAND -->
@@ -243,21 +243,9 @@
             <p class="section-desc">เพลงฮิตระดับร้อยล้านวิวที่มีท่อนฮุคสะเทือนอารมณ์และร้องตามได้ทันที</p>
           </div>
 
-          <!-- Audio Preview Notice & Toggle -->
-          <div class="audio-control-bar">
-            <div class="audio-hint">
-              <span class="audio-pulse-icon">🎧</span>
-              <span><strong>ฟีเจอร์เสียงท่อนฮิต:</strong> ชี้เมาส์ (Hover) ที่การ์ดเพลงเพื่อฟังท่อนฮุกของเพลงนั้นทันที หรือกดปุ่มเล่นเพลง</span>
-            </div>
-            <button type="button" id="audioToggleBtn" class="audio-mode-btn active" title="คลิกเพื่อเปิด/ปิดโหมดเล่นเสียงเมื่อ Hover">
-              <span class="mode-icon">🔊</span> เสียงพรีวิว: เปิดอยู่
-            </button>
-          </div>
-
           <div class="tracks-grid">
             <!-- Track 1: ฝนตกไหม -->
             <div class="track-card" data-song="fon-tok-mai">
-              <audio class="track-audio" preload="none" src="audio/fon-tok-mai.m4a"></audio>
               <div class="track-top">
                 <span class="track-num">01</span>
                 <span class="track-badge">BREAKTHROUGH HIT</span>
@@ -271,24 +259,10 @@
               <p class="track-story">
                 เพลงที่ทำให้ชื่อของ Three Man Down ติดหูคนไทยทั้งประเทศ ด้วยการเปรียบเทียบหยาดฝนกับความคิดถึงที่ไม่มีวันจาง
               </p>
-              <div class="track-player-bar">
-                <button type="button" class="play-btn" aria-label="เล่นท่อนฮุกเพลงฝนตกไหม">
-                  <span class="play-icon">▶</span>
-                  <span class="play-label">ฟังท่อนฮิต</span>
-                </button>
-                <div class="sound-wave" aria-hidden="true">
-                  <span class="bar"></span>
-                  <span class="bar"></span>
-                  <span class="bar"></span>
-                  <span class="bar"></span>
-                </div>
-                <span class="hover-status-text">ชี้เพื่อฟังท่อนฮิต 🎵</span>
-              </div>
             </div>
 
             <!-- Track 2: ถ้าเธอรักฉันจริง -->
             <div class="track-card" data-song="tha-thoe-rak-chan-ching">
-              <audio class="track-audio" preload="none" src="audio/tha-thoe-rak-chan-ching.m4a"></audio>
               <div class="track-top">
                 <span class="track-num">02</span>
                 <span class="track-badge badge-viral">VIRAL PHENOMENON</span>
@@ -302,24 +276,10 @@
               <p class="track-story">
                 เพลงอกหักที่มีท่อนจำสุดจี๊ด นำเสนอความเจ็บปวดของการต้องปล่อยมือคนที่รัก เพื่อให้เขาได้ไปพบกับความสุขที่แท้จริง
               </p>
-              <div class="track-player-bar">
-                <button type="button" class="play-btn" aria-label="เล่นท่อนฮุกเพลงถ้าเธอรักฉันจริง">
-                  <span class="play-icon">▶</span>
-                  <span class="play-label">ฟังท่อนฮิต</span>
-                </button>
-                <div class="sound-wave" aria-hidden="true">
-                  <span class="bar"></span>
-                  <span class="bar"></span>
-                  <span class="bar"></span>
-                  <span class="bar"></span>
-                </div>
-                <span class="hover-status-text">ชี้เพื่อฟังท่อนฮิต 🎵</span>
-              </div>
             </div>
 
             <!-- Track 3: ฝันถึงแฟนเก่า -->
             <div class="track-card" data-song="fan-thueng-faen-kao">
-              <audio class="track-audio" preload="none" src="audio/fan-thueng-faen-kao.m4a"></audio>
               <div class="track-top">
                 <span class="track-num">03</span>
                 <span class="track-badge">HEARTBREAK ANTHEM</span>
@@ -333,24 +293,10 @@
               <p class="track-story">
                 สะท้อนความรู้สึกของคนที่คิดว่าลืมแฟนเก่าได้แล้ว แต่จิตใต้สำนึกในความฝันกลับดึงความทรงจำในอดีตย้อนคืนมา
               </p>
-              <div class="track-player-bar">
-                <button type="button" class="play-btn" aria-label="เล่นท่อนฮุกเพลงฝันถึงแฟนเก่า">
-                  <span class="play-icon">▶</span>
-                  <span class="play-label">ฟังท่อนฮิต</span>
-                </button>
-                <div class="sound-wave" aria-hidden="true">
-                  <span class="bar"></span>
-                  <span class="bar"></span>
-                  <span class="bar"></span>
-                  <span class="bar"></span>
-                </div>
-                <span class="hover-status-text">ชี้เพื่อฟังท่อนฮิต 🎵</span>
-              </div>
             </div>
 
             <!-- Track 4: ข้างกัน -->
             <div class="track-card" data-song="khang-kan">
-              <audio class="track-audio" preload="none" src="audio/khang-kan.m4a"></audio>
               <div class="track-top">
                 <span class="track-num">04</span>
                 <span class="track-badge badge-romantic">ROMANTIC FAVORITE</span>
@@ -364,24 +310,10 @@
               <p class="track-story">
                 เพลงรักอบอุ่นหัวใจที่บอกเล่าความสุขของการได้อยู่เคียงข้างคนที่รัก ท่ามกลางแสงไฟและความเงียบสงบยามค่ำคืนในเมืองใหญ่
               </p>
-              <div class="track-player-bar">
-                <button type="button" class="play-btn" aria-label="เล่นท่อนฮุกเพลงข้างกัน">
-                  <span class="play-icon">▶</span>
-                  <span class="play-label">ฟังท่อนฮิต</span>
-                </button>
-                <div class="sound-wave" aria-hidden="true">
-                  <span class="bar"></span>
-                  <span class="bar"></span>
-                  <span class="bar"></span>
-                  <span class="bar"></span>
-                </div>
-                <span class="hover-status-text">ชี้เพื่อฟังท่อนฮิต 🎵</span>
-              </div>
             </div>
 
             <!-- Track 5: น้อง -->
             <div class="track-card" data-song="nong">
-              <audio class="track-audio" preload="none" src="audio/nong.m4a"></audio>
               <div class="track-top">
                 <span class="track-num">05</span>
                 <span class="track-badge">COLLABORATION HIT</span>
@@ -395,24 +327,10 @@
               <p class="track-story">
                 การผสานพลังทางดนตรีระหว่างร็อกและฮิปฮอป เพิ่มดีกรีความขี้เล่น สนุกสนาน และแสดงให้เห็นถึงความหลากหลายในการทำเพลง
               </p>
-              <div class="track-player-bar">
-                <button type="button" class="play-btn" aria-label="เล่นท่อนฮุกเพลงน้อง">
-                  <span class="play-icon">▶</span>
-                  <span class="play-label">ฟังท่อนฮิต</span>
-                </button>
-                <div class="sound-wave" aria-hidden="true">
-                  <span class="bar"></span>
-                  <span class="bar"></span>
-                  <span class="bar"></span>
-                  <span class="bar"></span>
-                </div>
-                <span class="hover-status-text">ชี้เพื่อฟังท่อนฮิต 🎵</span>
-              </div>
             </div>
 
             <!-- Track 6: วันเกิดฉันปีนี้ -->
             <div class="track-card" data-song="wan-koet-chan-pi-ni">
-              <audio class="track-audio" preload="none" src="audio/wan-koet-chan-pi-ni.m4a"></audio>
               <div class="track-top">
                 <span class="track-num">06</span>
                 <span class="track-badge">EMOTIONAL BALLAD</span>
@@ -426,19 +344,6 @@
               <p class="track-story">
                 ถ่ายทอดความเหงาของคนที่มีวันเกิดเพียงลำพัง แทนที่จะขอพรให้ตัวเอง กลับขอพรให้คนที่จากไปมีความสุข
               </p>
-              <div class="track-player-bar">
-                <button type="button" class="play-btn" aria-label="เล่นท่อนฮุกเพลงวันเกิดฉันปีนี้">
-                  <span class="play-icon">▶</span>
-                  <span class="play-label">ฟังท่อนฮิต</span>
-                </button>
-                <div class="sound-wave" aria-hidden="true">
-                  <span class="bar"></span>
-                  <span class="bar"></span>
-                  <span class="bar"></span>
-                  <span class="bar"></span>
-                </div>
-                <span class="hover-status-text">ชี้เพื่อฟังท่อนฮิต 🎵</span>
-              </div>
             </div>
           </div>
         </div>
@@ -600,116 +505,5 @@
         </div>
       </div>
     </footer>
-
-    <!-- Interactive Audio Controller Script (Hover to Play Hook) -->
-    <script>
-      (function() {
-        const trackCards = document.querySelectorAll('.track-card');
-        const toggleBtn = document.getElementById('audioToggleBtn');
-        let currentAudio = null;
-        let isAudioEnabled = true;
-
-        function stopAllAudio() {
-          trackCards.forEach(card => {
-            card.classList.remove('is-playing');
-            const audio = card.querySelector('.track-audio');
-            const playIcon = card.querySelector('.play-icon');
-            const playLabel = card.querySelector('.play-label');
-            if (audio) {
-              audio.pause();
-              audio.currentTime = 0;
-            }
-            if (playIcon) playIcon.textContent = '▶';
-            if (playLabel) playLabel.textContent = 'ฟังท่อนฮิต';
-          });
-          currentAudio = null;
-        }
-
-        function playTrack(card, audio) {
-          if (!isAudioEnabled || !audio) return;
-          if (currentAudio && currentAudio !== audio) {
-            stopAllAudio();
-          }
-
-          card.classList.add('is-playing');
-          const playIcon = card.querySelector('.play-icon');
-          const playLabel = card.querySelector('.play-label');
-          if (playIcon) playIcon.textContent = '⏸';
-          if (playLabel) playLabel.textContent = 'กำลังเล่น...';
-
-          currentAudio = audio;
-          const playPromise = audio.play();
-          if (playPromise !== undefined) {
-            playPromise.catch(err => {
-              console.log('Audio autoplay policy wait for interaction:', err);
-            });
-          }
-        }
-
-        function pauseTrack(card, audio) {
-          if (audio) {
-            audio.pause();
-            audio.currentTime = 0;
-          }
-          card.classList.remove('is-playing');
-          const playIcon = card.querySelector('.play-icon');
-          const playLabel = card.querySelector('.play-label');
-          if (playIcon) playIcon.textContent = '▶';
-          if (playLabel) playLabel.textContent = 'ฟังท่อนฮิต';
-          if (currentAudio === audio) {
-            currentAudio = null;
-          }
-        }
-
-        trackCards.forEach(card => {
-          const audio = card.querySelector('.track-audio');
-          const playBtn = card.querySelector('.play-btn');
-
-          if (!audio) return;
-
-          // 1. Hover to play (ชี้เมาส์แล้วมีเสียงเพลง/ท่อนฮุกออกมา)
-          card.addEventListener('mouseenter', () => {
-            playTrack(card, audio);
-          });
-
-          // 2. Mouse leave to pause (เลื่อนเมาส์ออกแล้วหยุด)
-          card.addEventListener('mouseleave', () => {
-            pauseTrack(card, audio);
-          });
-
-          // 3. Click to toggle play/pause (สำหรับคลิกและรองรับมือถือ)
-          if (playBtn) {
-            playBtn.addEventListener('click', (e) => {
-              e.stopPropagation();
-              if (card.classList.contains('is-playing')) {
-                pauseTrack(card, audio);
-              } else {
-                playTrack(card, audio);
-              }
-            });
-          }
-
-          // เมื่อเพลงเล่นจบ ให้รีเซ็ตกลับสถานะเดิม
-          audio.addEventListener('ended', () => {
-            pauseTrack(card, audio);
-          });
-        });
-
-        // ปุ่ม Toggle เปิด/ปิดโหมดเสียงพรีวิว
-        if (toggleBtn) {
-          toggleBtn.addEventListener('click', () => {
-            isAudioEnabled = !isAudioEnabled;
-            if (isAudioEnabled) {
-              toggleBtn.classList.add('active');
-              toggleBtn.innerHTML = '<span class="mode-icon">🔊</span> เสียงพรีวิว: เปิดอยู่';
-            } else {
-              stopAllAudio();
-              toggleBtn.classList.remove('active');
-              toggleBtn.innerHTML = '<span class="mode-icon">🔇</span> เสียงพรีวิว: ปิดอยู่';
-            }
-          });
-        }
-      })();
-    </script>
   </body>
 </html>
