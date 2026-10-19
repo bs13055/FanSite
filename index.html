@@ -240,12 +240,13 @@
           <div class="section-header-center">
             <div class="section-tag">03 // PHENOMENAL HITS</div>
             <h2 id="hits-title" class="section-heading">บทเพลงที่อยู่ในเพลย์ลิสต์ของทุกคน</h2>
-            <p class="section-desc">เพลงฮิตระดับร้อยล้านวิวที่มีท่อนฮุคสะเทือนอารมณ์และร้องตามได้ทันที</p>
+            <p class="section-desc">เพลงฮิตระดับร้อยล้านวิวที่มีท่อนฮุคสะเทือนอารมณ์และร้องตามได้ทันที (ชี้เมาส์ที่การ์ดเพื่อฟังท่อนฮุก 🎵)</p>
           </div>
 
           <div class="tracks-grid">
             <!-- Track 1: ฝนตกไหม -->
             <div class="track-card" data-song="fon-tok-mai">
+              <audio class="track-audio" preload="none" src="audio/fon-tok-mai.m4a"></audio>
               <div class="track-top">
                 <span class="track-num">01</span>
                 <span class="track-badge">BREAKTHROUGH HIT</span>
@@ -263,6 +264,7 @@
 
             <!-- Track 2: ถ้าเธอรักฉันจริง -->
             <div class="track-card" data-song="tha-thoe-rak-chan-ching">
+              <audio class="track-audio" preload="none" src="audio/tha-thoe-rak-chan-ching.m4a"></audio>
               <div class="track-top">
                 <span class="track-num">02</span>
                 <span class="track-badge badge-viral">VIRAL PHENOMENON</span>
@@ -280,6 +282,7 @@
 
             <!-- Track 3: ฝันถึงแฟนเก่า -->
             <div class="track-card" data-song="fan-thueng-faen-kao">
+              <audio class="track-audio" preload="none" src="audio/fan-thueng-faen-kao.m4a"></audio>
               <div class="track-top">
                 <span class="track-num">03</span>
                 <span class="track-badge">HEARTBREAK ANTHEM</span>
@@ -297,6 +300,7 @@
 
             <!-- Track 4: ข้างกัน -->
             <div class="track-card" data-song="khang-kan">
+              <audio class="track-audio" preload="none" src="audio/khang-kan.m4a"></audio>
               <div class="track-top">
                 <span class="track-num">04</span>
                 <span class="track-badge badge-romantic">ROMANTIC FAVORITE</span>
@@ -314,6 +318,7 @@
 
             <!-- Track 5: น้อง -->
             <div class="track-card" data-song="nong">
+              <audio class="track-audio" preload="none" src="audio/nong.m4a"></audio>
               <div class="track-top">
                 <span class="track-num">05</span>
                 <span class="track-badge">COLLABORATION HIT</span>
@@ -331,6 +336,7 @@
 
             <!-- Track 6: วันเกิดฉันปีนี้ -->
             <div class="track-card" data-song="wan-koet-chan-pi-ni">
+              <audio class="track-audio" preload="none" src="audio/wan-koet-chan-pi-ni.m4a"></audio>
               <div class="track-top">
                 <span class="track-num">06</span>
                 <span class="track-badge">EMOTIONAL BALLAD</span>
@@ -505,5 +511,92 @@
         </div>
       </div>
     </footer>
+
+    <!-- Interactive Audio Controller Script (Hover to Play Hook) -->
+    <script>
+      (function() {
+        const trackCards = document.querySelectorAll('.track-card');
+        let currentAudio = null;
+
+        function stopAllAudio() {
+          trackCards.forEach(card => {
+            card.classList.remove('is-playing');
+            const audio = card.querySelector('.track-audio');
+            if (audio) {
+              audio.pause();
+              audio.currentTime = 0;
+            }
+          });
+          currentAudio = null;
+        }
+
+        function playTrack(card, audio) {
+          if (!audio) return;
+          if (currentAudio && currentAudio !== audio) {
+            stopAllAudio();
+          }
+
+          currentAudio = audio;
+          card.classList.add('is-playing');
+          audio.currentTime = 0;
+          const playPromise = audio.play();
+          if (playPromise !== undefined) {
+            playPromise.catch(err => {
+              console.log('Audio autoplay policy wait for interaction:', err.message);
+            });
+          }
+        }
+
+        function pauseTrack(card, audio) {
+          if (audio) {
+            audio.pause();
+            audio.currentTime = 0;
+          }
+          card.classList.remove('is-playing');
+          if (currentAudio === audio) {
+            currentAudio = null;
+          }
+        }
+
+        // Unlock audio on first user gesture (ensures hover audio is never blocked by browser)
+        function unlockAudio() {
+          ['click', 'touchstart', 'keydown', 'scroll', 'pointerdown'].forEach(evt => {
+            window.removeEventListener(evt, unlockAudio, { passive: true });
+          });
+        }
+        ['click', 'touchstart', 'keydown', 'scroll', 'pointerdown'].forEach(evt => {
+          window.addEventListener(evt, unlockAudio, { passive: true, once: true });
+        });
+
+        trackCards.forEach(card => {
+          const audio = card.querySelector('.track-audio');
+          if (!audio) return;
+
+          // 1. ชี้เมาส์ (Hover) แล้วเล่นท่อนฮุกทันที
+          card.addEventListener('mouseenter', () => {
+            playTrack(card, audio);
+          });
+
+          // 2. เลื่อนเมาส์ออก (Mouse leave) แล้วหยุดเล่นทันที
+          card.addEventListener('mouseleave', () => {
+            pauseTrack(card, audio);
+          });
+
+          // 3. คลิกที่การ์ดเพื่อสลับ เล่น/หยุด (รองรับการแตะบนมือถือ/แท็บเล็ต)
+          card.addEventListener('click', () => {
+            if (card.classList.contains('is-playing')) {
+              pauseTrack(card, audio);
+            } else {
+              playTrack(card, audio);
+            }
+          });
+
+          // 4. เมื่อท่อนเพลงเล่นจบ ให้รีเซ็ตกลับสถานะเดิม
+          audio.addEventListener('ended', () => {
+            pauseTrack(card, audio);
+          });
+        });
+      })();
+    </script>
   </body>
 </html>
